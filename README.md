@@ -1,85 +1,120 @@
 # CakePHP Anleitung
 
-Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest, die erforderlichen Einstellungen vornimmst, eine Datenbank importierst und eine neue Seite mit CRUD-Operationen erstellst – alles innerhalb von Visual Studio Code (VS Code).
+Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest, die erforderlichen Einstellungen vornimmst, eine Datenbank importierst und eine neue Seite mit CRUD-Operationen erstellst – alles innerhalb von Visual Studio Code (VS Code)
 
-## 1. CakePHP-Projekt erstellen
+## 1. Composer installieren
+
+1. **[Composer](https://getcomposer.org/Composer-Setup.exe)** herunterladen und installieren
+
+2. Terminal öffnen und die Installation prüfen:
+
+```bash
+composer
+```
+
+## 2. CakePHP-Projekt erstellen
 
 > [!IMPORTANT]
 > Das Verzeichnis, in dem das Projekt abgelegt wird, ist frei wählbar!
 
-1. Öffne **Visual Studio Code** in einem beliebigen Verzeichnis.
-2. Öffne das integrierte Terminal mit **Strg + J** oder über **Terminal > Neues Terminal**.
-3. Erstelle ein neues CakePHP-Projekt mit Composer:
-    ```powershell
-    PS C:\*VerzeichnisDeinerWahl*> composer create-project --prefer-dist cakephp/app *Projektname*
+1. Öffne **Visual Studio Code** in einem beliebigen Verzeichnis
+
+2. Öffne das integrierte Terminal mit **Strg + J** oder über **Terminal > Neues Terminal**
+
+3. Erstelle ein neues CakePHP-Projekt mit Composer
+
+    ```bash
+     composer create-project --prefer-dist cakephp/app *Projektname*
     ```
+
     Ersetze `*Projektname*` mit dem gewünschten Namen des Projekts.
 
 > [!TIP]
 > Sobald das Projekt fehlerfrei erstellt wurde, empfiehlt es sich, das folgende Kommando einzugeben, um Flüchtigkeitsfehler zu vermeiden. Dadurch wird ein neues VS Code-Fenster geöffnet, und das alte kann geschlossen werden:
 >
-> ```powershell
-> PS C:\*VerzeichnisDeinerWahl*> code ./*Projektname*
+> ```bash
+>  code ./*Projektname*
 > ```
 
-## 2. PHP intl-Extension aktivieren
+## 3. PHP intl-Extension aktivieren
 
-1. Öffne die Datei `php.ini` in VS Code. Diese befindet sich unter `C:\xampp\php\php.ini`.
+1. Öffne die Datei `php.ini` in VS Code. Diese befindet sich unter `C:\xampp\php\php.ini`
+
 2. Suche nach diesen beiden Zeilen:
+
     ```ini
     ;extension=intl
-    ```
-    ```ini
     ;extension=zip
     ```
+
 3. Entferne das Semikolon (`;`), sodass die Zeilen wie folgt aussehen:
+
     ```ini
     extension=intl
-    ```
-    ```ini
     extension=zip
     ```
-4. Speichere die Datei.
 
-## 3. XAMPP starten
+4. Speichere die Datei
+
+## 4. XAMPP starten
 
 1. Öffne das XAMPP Control Panel.
 2. Starte **Apache** und **MySQL**.
 
-## 4. Datenbank importieren
+## 5. Datenbank importieren
 
-1. Lade die [SQL-Datei](./todolistdb.sql) herunter.
-2. Öffne **phpMyAdmin** unter `http://localhost/phpmyadmin`.
-3. Gehe zum Tab **Import** und wähle die heruntergeladene SQL-Datei aus.
-4. Klicke ganz unten auf **Importieren**.
+1. Lade die **[SQL-Datei](./todolistdb.sql)** herunter und speicher sie im selben Verzeichnis wie dein Projekt ab
 
-## 5. CakePHP-Server starten
+2. Öffne nun ein **CMD** Terminal in VS Code und gebe folgende Zeilen ein:
 
-1. Öffne das Terminal in VS Code und stelle sicher, dass du dich im Verzeichnis des Projekts befindest.
+```bash
+C:\xampp\mysql\bin\mysql.exe mysql -u root -p < todolistdb.sql
+```
+
+> [!IMPORTANT]
+> Das Terminal muss **CMD** sein!
+
+## 6. Datenbank einrichten
+
+1. Navigiere im VS Code-Explorer in den `config` Ordner und öffne `app_local.php`
+
+2. Auf Zeile `37` bei `default` ändere die Datenbankangaben entsprechend
+
+## 7. CakePHP-Server starten
+
+1. Öffne das Terminal in VS Code und stelle sicher, dass du dich im Verzeichnis des Projekts befindest
+
 2. Starte den Server:
-    ```powershell
+
+    ```bash
     bin/cake server
     ```
-3. Die App ist nun unter `http://localhost/` erreichbar.
 
-## 6. Neue Seite mit Bake erstellen
+3. Die App ist nun unter `http://localhost:8765/` erreichbar
 
-1. Falls du Bake noch nicht installiert hast, installiere es mit:
-    ```powershell
+## 8. Neue Seite mit Bake erstellen
+
+1. Falls Bake noch nicht installiert wurde:
+
+    ```bash
     composer require --dev cakephp/bake
     ```
-2. Erstelle ein neues Model, einen Controller und ein Template mit Bake:
-    ```powershell
-    bin/cake bake all *NameDerSeite*
+
+2. Erstelle eine neue Seite mit Bake:
+
+    ```bash
+    bin/cake bake all Tasks
     ```
-    Ersetze `*NameDerSeite*` mit dem gewünschten Namen.
 
-## 7. App im Browser öffnen
+> [!IMPORTANT]
+> Die Seite **muss** Tasks heissen, da die Tabelle in der Datenbank so heisst!
 
-1. Öffne `http://localhost/` in deinem Browser.
-2. Navigiere zu `http://localhost/*NameDerSeite*`.
+## 9. App im Browser öffnen
 
-## 8. CRUD-Operationen testen
+1. Öffne `http://localhost:8765/` in deinem Browser.
+2. Navigiere zu `http://localhost:8765/Tasks`.
+
+## 10. CRUD-Operationen testen
 
 Auf der generierten Seite kannst du folgende CRUD-Operationen ausprobieren:
 
@@ -88,4 +123,4 @@ Auf der generierten Seite kannst du folgende CRUD-Operationen ausprobieren:
 -   **Update**: Einträge bearbeiten
 -   **Delete**: Einträge löschen
 
-Viel Erfolg mit CakePHP in Visual Studio Code!
+Viel Spass mit CakePHP!
