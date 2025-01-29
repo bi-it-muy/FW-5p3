@@ -16,16 +16,24 @@ Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest
 
 1. Öffne die Datei `php.ini` in VS Code. Diese befindet sich unter `C:\xampp\php\php.ini`.
 
-2. Suche nach dieser Zeile:
+2. Suche nach diesen beiden Zeilen:
 
     ```ini
     ;extension=intl
     ```
 
-3. Entferne das Semikolon (`;`), damit die Zeile so aussieht:
+    ```ini
+    ;extension=zip
+    ```
+
+3. Entferne das Semikolon (`;`), damit die Zeilen so ausssehen:
 
     ```ini
     extension=intl
+    ```
+
+    ```ini
+    extension=zip
     ```
 
 4. Speichere die Datei.
