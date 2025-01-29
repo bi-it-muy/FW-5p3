@@ -79,7 +79,7 @@ C:\xampp\mysql\bin\mysql.exe mysql -u root -p < todolistdb.sql
 
 ## 6. Datenbank einrichten
 
-1. Navigiere im VS Code-Explorer in den `config`-Ordner und öffne `app_local.php`.
+1. Navigiere im VS Code-Explorer in den **[Config-Ordner](./Cake/config/)** und öffne **[app_local.php](./Cake/config/app_local.php)**.
 
 2. Ändere die Datenbankangaben in Zeile `37` bei `default` entsprechend.
 
