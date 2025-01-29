@@ -37,9 +37,10 @@ Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest
 
 ## 4. Datenbank importieren
 
-1. Lade die SQL-Datei herunter.
+1. Lade die [SQL-Datei](./todolistdb.sql) herunter.
 2. Öffne **phpMyAdmin** unter `http://localhost/phpmyadmin`.
-3. Gehe zum Tab **Importieren** und wähle die heruntergeladene SQL-Datei aus.
+3. Gehe zum Tab **Import** und wähle die heruntergeladene SQL-Datei aus.
+4. Klicke ganz unten auf **Import**.
 
 ## 5. CakePHP-Server starten
 
