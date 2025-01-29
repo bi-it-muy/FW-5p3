@@ -11,15 +11,15 @@ Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest
 2. Öffne das integrierte Terminal mit **Strg + J** oder über **Terminal > Neues Terminal**.
 3. Erstelle ein neues CakePHP-Projekt mit Composer:
     ```powershell
-    PS C:\VerzeichnisDeinerWahl> composer create-project --prefer-dist cakephp/app Projektname
+    PS C:\*VerzeichnisDeinerWahl*> composer create-project --prefer-dist cakephp/app *Projektname*
     ```
-    Ersetze `Projektname` mit dem gewünschten Namen des Projekts.
+    Ersetze `*Projektname*` mit dem gewünschten Namen des Projekts.
 
 > [!TIP]
 > Sobald das Projekt fehlerfrei erstellt wurde, empfiehlt es sich, das folgende Kommando einzugeben, um Flüchtigkeitsfehler zu vermeiden. Dadurch wird ein neues VS Code-Fenster geöffnet, und das alte kann geschlossen werden:
 >
 > ```powershell
-> PS C:\VerzeichnisDeinerWahl> code ./Projektname
+> PS C:\*VerzeichnisDeinerWahl*> code ./*Projektname*
 > ```
 
 ## 2. PHP intl-Extension aktivieren
@@ -70,14 +70,14 @@ Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest
     ```
 2. Erstelle ein neues Model, einen Controller und ein Template mit Bake:
     ```powershell
-    bin/cake bake all <NameDerSeite>
+    bin/cake bake all *NameDerSeite*
     ```
-    Ersetze `<NameDerSeite>` mit dem gewünschten Namen.
+    Ersetze `*NameDerSeite*` mit dem gewünschten Namen.
 
 ## 7. App im Browser öffnen
 
 1. Öffne `http://localhost/` in deinem Browser.
-2. Navigiere zu `http://localhost/NameDerSeite`.
+2. Navigiere zu `http://localhost/*NameDerSeite*`.
 
 ## 8. CRUD-Operationen testen
 
