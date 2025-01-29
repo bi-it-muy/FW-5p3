@@ -4,43 +4,46 @@ Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest
 
 ## 1. CakePHP-Projekt erstellen
 
-1. Öffne **Visual Studio Code** öffne einen leeren Ordner deiner Wahl.
-2. Öffne das integrierte Terminal mit **Strg + J** über **Terminal > Neues Terminal**.
+> [!IMPORTANT]
+> Das Verzeichnis, in dem das Projekt abgelegt wird, ist frei wählbar!
+
+1. Öffne **Visual Studio Code** in einem beliebigen Verzeichnis.
+2. Öffne das integrierte Terminal mit **Strg + J** oder über **Terminal > Neues Terminal**.
 3. Erstelle ein neues CakePHP-Projekt mit Composer:
-    ```sh
-    composer create-project --prefer-dist cakephp/app <Projektname>
+    ```powershell
+    PS C:\VerzeichnisDeinerWahl> composer create-project --prefer-dist cakephp/app Projektname
     ```
-    Ersetze `<Projektname>` mit dem gewünschten Namen des Projekts.
+    Ersetze `Projektname` mit dem gewünschten Namen des Projekts.
+
+> [!TIP]
+> Sobald das Projekt fehlerfrei erstellt wurde, empfiehlt es sich, das folgende Kommando einzugeben, um Flüchtigkeitsfehler zu vermeiden. Dadurch wird ein neues VS Code-Fenster geöffnet, und das alte kann geschlossen werden:
+>
+> ```powershell
+> PS C:\VerzeichnisDeinerWahl> code ./Projektname
+> ```
 
 ## 2. PHP intl-Extension aktivieren
 
 1. Öffne die Datei `php.ini` in VS Code. Diese befindet sich unter `C:\xampp\php\php.ini`.
-
 2. Suche nach diesen beiden Zeilen:
-
     ```ini
     ;extension=intl
     ```
-
     ```ini
     ;extension=zip
     ```
-
-3. Entferne das Semikolon (`;`), damit die Zeilen so ausssehen:
-
+3. Entferne das Semikolon (`;`), sodass die Zeilen wie folgt aussehen:
     ```ini
     extension=intl
     ```
-
     ```ini
     extension=zip
     ```
-
 4. Speichere die Datei.
 
 ## 3. XAMPP starten
 
-1. Öffne den XAMPP Control Panel.
+1. Öffne das XAMPP Control Panel.
 2. Starte **Apache** und **MySQL**.
 
 ## 4. Datenbank importieren
@@ -48,37 +51,33 @@ Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest
 1. Lade die [SQL-Datei](./todolistdb.sql) herunter.
 2. Öffne **phpMyAdmin** unter `http://localhost/phpmyadmin`.
 3. Gehe zum Tab **Import** und wähle die heruntergeladene SQL-Datei aus.
-4. Klicke ganz unten auf **Import**.
+4. Klicke ganz unten auf **Importieren**.
 
 ## 5. CakePHP-Server starten
 
-1. Öffne das Terminal in VS Code und navigiere in das CakePHP-Projektverzeichnis:
-    ```sh
-    cd C:\xampp\htdocs\<Projektname>
-    ```
-    Der Pfad des Projekts kann beliebig gewählt werden, muss aber mit den Server-Einstellungen übereinstimmen.
-2. Starte den eingebauten Server:
-    ```sh
+1. Öffne das Terminal in VS Code und stelle sicher, dass du dich im Verzeichnis des Projekts befindest.
+2. Starte den Server:
+    ```powershell
     bin/cake server
     ```
-3. Die App ist nun unter `http://localhost:8765/` erreichbar.
+3. Die App ist nun unter `http://localhost/` erreichbar.
 
 ## 6. Neue Seite mit Bake erstellen
 
 1. Falls du Bake noch nicht installiert hast, installiere es mit:
-    ```sh
+    ```powershell
     composer require --dev cakephp/bake
     ```
-2. Erstelle ein neues Model, Controller und Template mit Bake:
-    ```sh
+2. Erstelle ein neues Model, einen Controller und ein Template mit Bake:
+    ```powershell
     bin/cake bake all <NameDerSeite>
     ```
     Ersetze `<NameDerSeite>` mit dem gewünschten Namen.
 
 ## 7. App im Browser öffnen
 
-1. Öffne `http://localhost:8765/` in deinem Browser.
-2. Navigiere zu `http://localhost:8765/<NameDerSeite>`.
+1. Öffne `http://localhost/` in deinem Browser.
+2. Navigiere zu `http://localhost/NameDerSeite`.
 
 ## 8. CRUD-Operationen testen
 
