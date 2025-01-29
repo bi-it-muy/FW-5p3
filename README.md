@@ -1,7 +1,3 @@
-Hier ist eine verbesserte Version deiner Anleitung:
-
----
-
 # CakePHP Anleitung
 
 Diese Anleitung beschreibt, wie du ein CakePHP-Projekt erstellst, XAMPP startest, die erforderlichen Einstellungen vornimmst, eine Datenbank importierst und eine neue Seite mit CRUD-Operationen erstellst – alles innerhalb von Visual Studio Code (VS Code).
